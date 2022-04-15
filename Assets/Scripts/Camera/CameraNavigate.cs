@@ -28,7 +28,8 @@ public class CameraNavigate : MonoBehaviour
             else
                 zoomSpeed = 3000;
 
-            transform.localPosition += Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) * new Vector3(1,0,0) * zoomSpeed * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
+            transform.localPosition += Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z) 
+                                        * new Vector3(1,0,0) * zoomSpeed * Time.deltaTime * Input.GetAxis("Mouse ScrollWheel");
         }
         if (Input.GetKey(KeyCode.Mouse1))
         {

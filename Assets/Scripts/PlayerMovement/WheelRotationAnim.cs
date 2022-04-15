@@ -34,14 +34,14 @@ public class WheelRotationAnim : MonoBehaviour
     void Update()
     {
         curRotation += 0.03f * -Sign(curRotation) * Time.deltaTime * 500;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if (curRotation > -30f)
             {
                 curRotation -= 0.1f * Time.deltaTime * 500;
             }
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if (curRotation < 30f)
             {
@@ -52,7 +52,7 @@ public class WheelRotationAnim : MonoBehaviour
         wheelRightRotAxis.transform.localRotation = Quaternion.Euler(90f, 0f, curRotation);
         wheelLeftRotAxis.transform.localRotation = Quaternion.Euler(90f, 0f, curRotation);
 
-        float localForwardVelocity = Vector3.Dot(PlayerMovement.rb.velocity, PlayerMovement.rb.transform.forward);
+        float localForwardVelocity = Vector3.Dot(PlayerMovement.rb.velocity, PlayerMovement.rb.transform.right);
 
         //wheelRotation.z += (float)(Sqrt(Pow(PlayerMovement.rb.velocity.x, 2) +
         //                               Pow(PlayerMovement.rb.velocity.y, 2)) * Time.deltaTime * -100);

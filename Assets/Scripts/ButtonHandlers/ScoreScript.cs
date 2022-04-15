@@ -22,6 +22,7 @@ public class ScoreScript : MonoBehaviour
     void Update()
     {
         DisplayScore();
+
     }
 
     void DisplayScore()

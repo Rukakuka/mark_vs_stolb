@@ -61,7 +61,6 @@ public class GameOverScript : MonoBehaviour
     }
     public static void Restart()
     {
-        Debug.Log("restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         ScoreScript.Score = 0;
     }
