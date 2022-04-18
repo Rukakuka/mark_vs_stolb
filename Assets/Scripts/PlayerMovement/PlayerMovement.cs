@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     static public float rotForce;
     private float maxVel = 25;
     Vector2 wheelRotation;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             
             float localForwardVelocity = Vector3.Dot(rb.velocity, rb.transform.right);
             float localSideVelocity = Vector3.Dot(rb.velocity, rb.transform.forward);
-            float localAngularVelocity = rb.angularVelocity.x
+            //float localAngularVelocity = rb.angularVelocity.x
             rb.AddRelativeForce(10f * 100f * Time.deltaTime * new Vector3(-localForwardVelocity, 0f, -localSideVelocity));
             rb.AddRelativeTorque(Vector3.up * rotForce * Time.deltaTime * -WheelRotationAnim.curRotation / 30f * 0.1f, ForceMode.Impulse);
         }
