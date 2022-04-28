@@ -22,10 +22,21 @@ public class GameOverScript : MonoBehaviour
         GameOverPanel.SetActive(false);
 
         if (ScoreScript.Score == 0)
+        {
+            FireRender._particleSystem.Stop();
             endgame = false;
+            foreach (Light light in LightOffScript.lights)
+                light.enabled = true;
+        }
+            
 
         if (ScoreScript.Score > 2)
         {
+            FireRender._particleSystem.Play();
+
+            foreach (Light light in LightOffScript.lights)
+                light.enabled = false;
+
             PlayerMovement.trForce = 0;
             PlayerMovement.rotForce = 0;
             PlayerMovement.jumpForce = 0;
