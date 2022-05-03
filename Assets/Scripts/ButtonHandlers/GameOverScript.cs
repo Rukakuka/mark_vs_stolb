@@ -23,17 +23,15 @@ public class GameOverScript : MonoBehaviour
 
         if (ScoreScript.Score == 0)
         {
-            FireRender._particleSystem.Stop();
             endgame = false;
             foreach (Light light in LightOffScript.lights)
                 light.enabled = true;
         }
             
 
-        if (ScoreScript.Score > 2)
+        if (ScoreScript.Score >= 1)
         {
-            FireRender._particleSystem.Play();
-
+            
             foreach (Light light in LightOffScript.lights)
                 light.enabled = false;
 
@@ -66,6 +64,7 @@ public class GameOverScript : MonoBehaviour
                 if (!player.audioSource.isPlaying)
                     player.PlayAudioClip((string)sounds[r]);
             }
+            
             endgame = true;
             //endGameText.enabled = true;
         }

@@ -27,6 +27,6 @@ public class ScoreScript : MonoBehaviour
 
     void DisplayScore()
     {
-        ScoreText.text = "Столбов собрано: " + Score.ToString() + "/3";
+        ScoreText.text = "Столбов собрано: " + Score.ToString() + "/1";
     }
 }

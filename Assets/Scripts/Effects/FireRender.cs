@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireRender : MonoBehaviour
 {
-    public static ParticleSystem _particleSystem; 
+    private ParticleSystem _particleSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,19 @@ public class FireRender : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (ScoreScript.Score >= 1)
+        {
+            if (!_particleSystem.isPlaying)
+            {
+                _particleSystem.Play();
+            }
+        }
+        else
+        {
+            if (_particleSystem.isPlaying)
+            {
+                _particleSystem.Stop();
+            }
+        }
     }
 }
