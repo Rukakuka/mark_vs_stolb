@@ -33,5 +33,9 @@ public class CollisionScore : MonoBehaviour
             }
             ScoreScript.Score += 1;
         }
+        if (other.gameObject.tag == "Tree")
+        {
+            TreeAnimator.anim.SetBool("treeHit", true);
+        }
     }
 }
